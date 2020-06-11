@@ -25,15 +25,19 @@ function getCities(event) {
     const indexOfSelectedState = event.target.selectedIndex
     stateInput.value = event.target.options[indexOfSelectedState]
 
+    citySelect.innerHTML = `<option value>Selecione a cidade</option>`
+    citySelect.disabled = false
+
     fetch(url)
     .then( res => res.json())
     .then(cities => {
+        
 
         for (const city of cities) {
-            citySelect.innerHTML += `<option value="${city.id}">${city.nome}</option>`
+            citySelect.innerHTML += `<option value="${city.nome}">${city.nome}</option>`
         }
 
-        citySelect.disabled = false
+        
 
     })
 }
@@ -41,3 +45,39 @@ function getCities(event) {
 document
     .querySelector("select[name=uf]")
     .addEventListener("change" , getCities)
+
+const collectedItems = document.querySelector("input[name=items]")
+const itemsToCollect = document.querySelectorAll(".items-grid li")
+
+for (const item of itemsToCollect) {
+    item.addEventListener("click" , handleSelectedItem)
+}
+
+let selectItems = [];
+
+function handleSelectedItem() {
+    
+    const itemLi = event.target
+
+    itemLi.classList.toggle("selected")
+
+    const itemId = itemLi.dataset.id
+
+    const alreadySelected = selectItems.findIndex((item) => {
+      const itemFound = item == itemId
+      return itemFound  
+    })
+
+    if (alreadySelected>=0) {
+        const filteredItems = selectItems.filter( item => {
+            const itemIsDifferent = item != itemId
+            return itemIsDifferent
+        })
+        selectItems = filteredItems
+    } else {
+        selectItems.push(itemId)
+    }
+    
+    collectedItems.value = selectItems
+
+}
