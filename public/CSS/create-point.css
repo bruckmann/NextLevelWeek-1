@@ -46,6 +46,11 @@ form fieldset {
 
 form legend {
     margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
 }
 
 form legend h2 {
@@ -107,6 +112,11 @@ form button:hover {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 16px;
+}
+
+form legend span {
+    color: var(--primary-color);
+    font-size: 14px;
 }
 
 .items-grid li {

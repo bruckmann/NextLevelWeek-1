@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% set pageId = "page-search-results" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="CSS/search-results.css">
+{% endblock styles %}
+
+{% block title %}
+    <title>Resultados da pesquisa:</title>
+{% endblock title %}
+
+{% block content %}
+
+    {% include "partials/page-header.html" %}
+
+    <main>
+        <h4>
+            <strong>2 pontos</strong>
+            encontrados
+        </h4>
+
+        <div class="cards">
+            <div class="card">
+                <img src="assets/undraw_takeout_boxes_ap54.svg" alt="Colectoria">
+                <h1>Colectoria</h1>
+                <h3>Resíduos Eletrônicos</h3>
+                <p>
+                    Rio do sul, Santa Catarina
+                    <br>
+                    Guilherme Gemballa, Jardim Amêrica
+                    <br>
+                    N° 260
+                </p>
+            </div>
+            <div class="card">
+                <img src="assets/undraw_throw_away_ldjd.svg" alt="Papersider">
+                <h1>Papersider</h1>
+                <h3>Papéis e Papelão</h3>
+                <p>
+                    Rio do sul, Santa Catarina
+                    <br>
+                    Guilherme Gemballa, Jardim Amêrica
+                    <br>
+                    N° 260
+                </p>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
+
+</body>
+</html>

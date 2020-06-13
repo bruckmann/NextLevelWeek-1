@@ -1,0 +1,26 @@
+{
+  "name": "NextLevelWeek-",
+  "version": "1.0.0",
+  "description": "<h1>Um projeto desenvolvido na <b>NLW</b></h1>",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iStrokes/NextLevelWeek-.git"
+  },
+  "author": "Felipe Brückmann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iStrokes/NextLevelWeek-/issues"
+  },
+  "homepage": "https://github.com/iStrokes/NextLevelWeek-#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nunjucks": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
