@@ -14,37 +14,40 @@
     {% include "partials/page-header.html" %}
 
     <main>
+
+    {% if total > 0 %}
+
+
         <h4>
-            <strong>2 pontos</strong>
+            <strong>{{total}} pontos</strong>
             encontrados
         </h4>
 
         <div class="cards">
+
+        {% for place in places2 %}
             <div class="card">
-                <img src="assets/undraw_takeout_boxes_ap54.svg" alt="Colectoria">
-                <h1>Colectoria</h1>
-                <h3>Resíduos Eletrônicos</h3>
+                <img src="{{place.image}}" alt="{{place.name}}">
+                <h1>{{place.name}}</h1>
+                <h3>{{place.itens}}</h3>
                 <p>
-                    Rio do sul, Santa Catarina
+                    {{place.city}}, {{place.state}}
                     <br>
-                    Guilherme Gemballa, Jardim Amêrica
+                    {{place.address}}
                     <br>
-                    N° 260
+                    {{place.address2}}
                 </p>
             </div>
-            <div class="card">
-                <img src="assets/undraw_throw_away_ldjd.svg" alt="Papersider">
-                <h1>Papersider</h1>
-                <h3>Papéis e Papelão</h3>
-                <p>
-                    Rio do sul, Santa Catarina
-                    <br>
-                    Guilherme Gemballa, Jardim Amêrica
-                    <br>
-                    N° 260
-                </p>
-            </div>
+        {% endfor %}
+
         </div>
+
+    {% else %}
+
+    <h4><strong>Nenhum</strong> local cadastrado</h4>
+
+    {% endif %}
+
     </main>
 {% endblock content %}
 

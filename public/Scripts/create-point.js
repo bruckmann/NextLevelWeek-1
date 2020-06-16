@@ -64,8 +64,8 @@ function handleSelectedItem() {
     const itemId = itemLi.dataset.id
 
     const alreadySelected = selectItems.findIndex((item) => {
-      const itemFound = item == itemId
-      return itemFound  
+        const itemFound = item == itemId
+        return itemFound  
     })
 
     if (alreadySelected>=0) {
