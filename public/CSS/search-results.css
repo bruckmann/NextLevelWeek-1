@@ -1,12 +1,17 @@
 body::after {
     content: "";
-    position: fixed;
-    background-color: white;
-    top: 240px;
+    position: absolute;
+    background-color: #f0f0f5 ;
+    top: 0;
     right: 0;
     left: 0;
     bottom: 0;
+    height: 16rem;
     z-index: -1;
+}
+
+body {
+    background-color: white;
 }
 
 #page-search-results {
@@ -44,7 +49,7 @@ main {
 
 main img {
     width: 100%;
-    width: 150px;
+    
 
     border-radius: 8px 8px 0 0 ;
 }

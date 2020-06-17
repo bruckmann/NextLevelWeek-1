@@ -14,7 +14,7 @@ nunjucks.configure("src/views" , {
 })
 
 server.get("/" , (req , res) => {
-   return res.render("index.html")
+    return res.render("index.html")
 })
 
 server.get("/create-point" , (req , res) => {
@@ -35,28 +35,39 @@ server.post("/savepoint" , (req, res) => {
     const dados = [ 
         req.body.image,
         req.body.name,
-        req.body.address,
-        req.body.address2,
-        req.body.state,
+        req.body.adress,
+        req.body.adress2,
+        req.body.uf,
         req.body.city,
         req.body.items
             ]
+
         function afterInsertData(err) {
             if (err) {
                 return console.log(err)
         }
 
             console.log("Cadastrado com sucesso")
-                console.log(this)
+            console.log(this)
+            return res.render("create-point.html", {saved: true})
         }
 
-    return res.send("ok")
+        db.run(query , dados , afterInsertData)
 
 })
 
 server.get("/search" , (req , res) => {
 
-    db.all(`SELECT * FROM places2`, function (err, rows) {
+
+    const search = req.query.search
+
+    if (search == "") {
+        return res.render("search-results.html" , {total:0})
+    }
+
+
+
+    db.all(`SELECT * FROM places2 WHERE city LIKE  '%${search}%'`, function (err, rows) {
         if (err) {
         console.log(err);
         }
